@@ -4,7 +4,7 @@ using Zenject;
 public class LevelInstaller : MonoInstaller
 {
     [SerializeField]
-    public JoystickPackJoystick joystickPackJoystick;
+    public MobilePlayerJoytick joystickPackJoystick;
 
     public override void InstallBindings()
     {
@@ -17,12 +17,6 @@ public class LevelInstaller : MonoInstaller
             .ToMethod<LevelManager>(l => l.OnPlayerTouched).FromResolve();
 
         Container.BindInterfacesAndSelfTo<ColorsManager>().AsSingle();
-
-        PlayerJoystick joystick = new CompositeJoystick(
-            new KeyboardPlayerJoystick(),
-            joystickPackJoystick
-        );
-        Container.Bind<PlayerJoystick>().FromInstance(joystick);
     }
 
     public void InstallSignals()

@@ -2,33 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SideScreenTapPlayerJoystick : PlayerJoystick
+public class SideScreenTapPlayerJoystick : MonoBehaviour
 {
-    public float GetHorizontalAxis()
+    private void Update()
     {
+        Debug.Log("Update");
         if (Input.touchCount == 0)
         {
-            return 0.0f;
+            UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.SetAxis("Horizontal", 0.0f);
+            return;
         }
         Touch touch = Input.GetTouch(0);
         float screenWidth = Screen.width;
         if (touch.position.x > (Screen.width / 2))
         {
-            return 1.0f;
+            UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.SetAxis("Horizontal", 1.0f);
         }
         else
         {
-            return -1.0f;
+            UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.SetAxis("Horizontal", -1.0f);
         }
-    }
-
-    public bool IsChangingColor()
-    {
-        return false;
-    }
-
-    public bool IsJumping()
-    {
-        return false;
     }
 }

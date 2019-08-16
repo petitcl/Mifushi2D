@@ -1,40 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 using Zenject;
 
 [AddComponentMenu("Scripts/Mifushi 2D/InputPlayerController")]
 [RequireComponent(typeof(PlayerController))]
 public class InputPlayerController : MonoBehaviour
 {
-    private PlayerJoystick _playerJoystick;
+    [SerializeField]
+    public CrossPlatformInputManager.ActiveInputMethod activeInputMethod = CrossPlatformInputManager.ActiveInputMethod.Touch;
 
     private PlayerController _playerController;
-
-    [Inject]
-    public void Init(PlayerJoystick playerJoystick)
-    {
-        _playerJoystick = playerJoystick;
-    }
 
     private void Start()
     {
         _playerController = GetComponent<PlayerController>();
+        CrossPlatformInputManager.SwitchActiveInputMethod(activeInputMethod);
     }
 
     private void Update()
     {
         // update color
-        if (_playerJoystick.IsChangingColor())
+        if (CrossPlatformInputManager.GetButtonDown("ColorChange"))
         {
+            Debug.LogWarning("CycleColor");
             _playerController.CycleColor();
         }
 
         // update movement
-        float horizontalMove = _playerJoystick.GetHorizontalAxis();
+        float horizontalMove = CrossPlatformInputManager.GetAxisRaw("Horizontal");
+
         _playerController.Move(horizontalMove);
 
-        if (_playerJoystick.IsJumping())
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
             Debug.LogWarning("Jump");
             _playerController.Jump();

@@ -6,21 +6,18 @@ using Zenject;
 [RequireComponent(typeof(PlayerController))]
 public class InputPlayerController : MonoBehaviour
 {
-    [SerializeField]
-    public CrossPlatformInputManager.ActiveInputMethod activeInputMethod = CrossPlatformInputManager.ActiveInputMethod.Touch;
-
     private PlayerController _playerController;
 
     private void Start()
     {
         _playerController = GetComponent<PlayerController>();
-        CrossPlatformInputManager.SwitchActiveInputMethod(activeInputMethod);
     }
 
     private void Update()
     {
         // update color
         if (CrossPlatformInputManager.GetButtonDown("ColorChange"))
+        //if (Input.GetButtonDown("ColorChange"))
         {
             Debug.LogWarning("CycleColor");
             _playerController.CycleColor();
@@ -28,10 +25,12 @@ public class InputPlayerController : MonoBehaviour
 
         // update movement
         float horizontalMove = CrossPlatformInputManager.GetAxisRaw("Horizontal");
+        //float horizontalMove = Input.GetAxisRaw("Horizontal");
 
         _playerController.Move(horizontalMove);
 
         if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        // if (Input.GetButtonDown("Jump"))
         {
             Debug.LogWarning("Jump");
             _playerController.Jump();

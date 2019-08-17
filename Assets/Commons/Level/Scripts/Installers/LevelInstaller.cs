@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 using Zenject;
 
 public class LevelInstaller : MonoInstaller
 {
     [SerializeField]
-    public MobilePlayerJoytick joystickPackJoystick;
+    public bool debugMode = false;
 
     public override void InstallBindings()
     {
@@ -17,6 +18,10 @@ public class LevelInstaller : MonoInstaller
             .ToMethod<LevelManager>(l => l.OnPlayerTouched).FromResolve();
 
         Container.BindInterfacesAndSelfTo<ColorsManager>().AsSingle();
+        if (debugMode)
+        {
+            InstallDebugBindings();
+        }
     }
 
     public void InstallSignals()
@@ -27,4 +32,8 @@ public class LevelInstaller : MonoInstaller
         Container.DeclareSignal<PlayerTouchedSignal>();
     }
 
+    public void InstallDebugBindings()
+    {
+        // todo
+    }
 }

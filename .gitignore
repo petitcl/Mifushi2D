@@ -4,6 +4,7 @@
 [Bb]uild/
 [Bb]uilds/
 Assets/AssetStoreTools*
+Assets/ThirdParty/BayatGames/Free Platform Game Assets/
 
 # Visual Studio cache directory
 .vs/

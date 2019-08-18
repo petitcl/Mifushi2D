@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4072100943301157027}
   - component: {fileID: 1594159478992028307}
-  - component: {fileID: 3789243514466294895}
+  - component: {fileID: 1683862244}
   m_Layer: 0
   m_Name: Scene Context
   m_TagString: Untagged
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
-  - {fileID: 3789243514466294895}
+  - {fileID: 1683862244}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -72,7 +72,7 @@ MonoBehaviour:
   _parentNewObjectsUnderSceneContext: 0
   _contractNames: []
   _parentContractNames: []
---- !u!114 &3789243514466294895
+--- !u!114 &1683862244
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,7 +81,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 8270934479121204919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dd74e425c6549245ae53f1ebb4645de, type: 3}
+  m_Script: {fileID: 11500000, guid: fcf70508faee014468904466c13bddf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 1
+  OnLevelEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Wave
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

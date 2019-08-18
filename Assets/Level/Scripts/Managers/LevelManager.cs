@@ -5,21 +5,28 @@ using Zenject;
 
 public class LevelManager : IInitializable
 {
-    private ColorsManager _colorsManager;
+    private readonly ColorsManager _colorsManager;
+    private readonly SignalBus _signalBus;
+    private readonly AsyncProcessor _asyncProcessor;
 
-    public LevelManager(ColorsManager colorsManager)
+    public LevelManager(ColorsManager colorsManager, SignalBus signalBus, AsyncProcessor asyncProcessor)
     {
         _colorsManager = colorsManager;
+        _signalBus = signalBus;
+        _asyncProcessor = asyncProcessor;
     }
 
     public void Initialize()
     {
-        
+        _signalBus.Fire(new LevelStartSignal());
     }
 
     public void OnPlayerTouched(PlayerTouchedSignal signal)
     {
-        //player.transform.position = respawnPoint.position;
+        if (signal.objectTouchType == ObjectTouchType.LevelEnd)
+        {
+            _asyncProcessor.StartCoroutine(OnLevelEnd());
+        }
     }
 
     public void OnPlayerChangeColor(PlayerChangedColorSignal signal)
@@ -27,4 +34,10 @@ public class LevelManager : IInitializable
         _colorsManager.SetWorldColor(signal.newColor);
     }
 
+    public IEnumerator OnLevelEnd()
+    {
+        yield return new WaitForSeconds(2.0f);
+        _signalBus.Fire(new LevelEndSignal());
+        yield return new WaitForSeconds(1.0f);
+    }
 }

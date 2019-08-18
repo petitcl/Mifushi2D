@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -6,6 +7,9 @@ using Zenject;
 [AddComponentMenu("Scripts/Mifushi 2D/OnPlayerTouched")]
 public class OnPlayerTouched : MonoBehaviour
 {
+    [SerializeField]
+    public ObjectTouchType objectTouchType;
+
     private SignalBus _signalBus;
 
     private ColoredGameObject _coloredGameObject;
@@ -25,8 +29,8 @@ public class OnPlayerTouched : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("OnPlayerTouched.OnCollisionEnter2D -> collision between [" + gameObject.name + "] and [" + collision.gameObject.name + "]");
-            _signalBus.Fire(new PlayerTouchedSignal() { touching = collision.gameObject });
+            Debug.Log(String.Format("OnPlayerTouched.OnCollisionEnter2D -> collision between {0} and {1}", gameObject.name, collision.gameObject.name));
+            _signalBus.Fire(new PlayerTouchedSignal() { touching = collision.gameObject, objectTouchType = objectTouchType });
         }
     }
 
@@ -34,8 +38,8 @@ public class OnPlayerTouched : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            Debug.Log("OnPlayerTouched.OnTriggerEnter2D -> collision between [" + gameObject.name + "] and [" + collider.gameObject.name + "]");
-            _signalBus.Fire(new PlayerTouchedSignal() { touching = collider.gameObject });
+            Debug.Log(String.Format("OnPlayerTouched.OnTriggerEnter2D -> collision between {0} and {1}", gameObject.name, collider.gameObject.name));
+            _signalBus.Fire(new PlayerTouchedSignal() { touching = collider.gameObject, objectTouchType = objectTouchType });
         }
     }
 }

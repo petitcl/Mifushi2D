@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private SignalBus _signalBus;
     private ColorsManager _colorsManager;
+    private LevelManager _levelManager;
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
@@ -45,6 +46,8 @@ public class PlayerController : MonoBehaviour
     private float _movementSmoothing = 0.05f;
     private float _timeSinceLastColorChange = 0.0f;
     private bool _facingRight = true;
+    // can the player do anything
+    private bool _enabled = true;
 
     [Inject]
     public void Init(ColorsManager colorsManager, SignalBus signalBus)
@@ -52,10 +55,12 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("PlayerController.Init");
         _colorsManager = colorsManager;
         _signalBus = signalBus;
+        signalBus.Subscribe<LevelEndSignal>(s => this.OnLevelEnd(s));
     }
 
     public bool SetColor(GameColor newColor)
     {
+        if (!_enabled) return false;
         //Debug.Log("SetColor " + _timeSinceLastColorChange  + " " + _changeColorCooldown);
         if (_timeSinceLastColorChange < changeColorCooldown)
         {
@@ -74,6 +79,7 @@ public class PlayerController : MonoBehaviour
 
     public bool CycleColor()
     {
+        if (!_enabled) return false;
         switch (_coloredGameObject.Color)
         {
             case GameColor.RED:
@@ -89,6 +95,10 @@ public class PlayerController : MonoBehaviour
 
     public void Move(float direction)
     {
+        if (!_enabled)
+        {
+            direction = 0.0f;
+        }
         // update velocity
         if (_isGrounded || airControl)
         {
@@ -124,6 +134,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
+        if (!_enabled) return;
         if (!_isJumping && _timeSinceLastGrounded < _jumpGracePeriod)
         {
             //Debug.LogWarning("AddForce " + _isGrounded + " " + _isJumping);
@@ -131,6 +142,11 @@ public class PlayerController : MonoBehaviour
             _isJumping = true;
             //Debug.LogWarning("After AddForce " + _isGrounded + " " + _isJumping);
         }
+    }
+
+    public void OnLevelEnd(LevelEndSignal signal)
+    {
+        _enabled = false;
     }
 
     private void Flip()
@@ -158,7 +174,6 @@ public class PlayerController : MonoBehaviour
     {
         _timeSinceLastColorChange += Time.deltaTime;
     }
-
 
     private void FixedUpdate()
     {

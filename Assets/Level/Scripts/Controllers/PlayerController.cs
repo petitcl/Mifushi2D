@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
+//todo: remove the need to call Move(0) at each frame
 [AddComponentMenu("Scripts/Mifushi 2D/PlayerController")]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(ColoredGameObject))]
@@ -55,12 +56,10 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("PlayerController.Init");
         _colorsManager = colorsManager;
         _signalBus = signalBus;
-        signalBus.Subscribe<LevelEndSignal>(s => this.OnLevelEnd(s));
     }
 
     public bool SetColor(GameColor newColor)
     {
-        if (!_enabled) return false;
         //Debug.Log("SetColor " + _timeSinceLastColorChange  + " " + _changeColorCooldown);
         if (_timeSinceLastColorChange < changeColorCooldown)
         {
@@ -79,7 +78,6 @@ public class PlayerController : MonoBehaviour
 
     public bool CycleColor()
     {
-        if (!_enabled) return false;
         switch (_coloredGameObject.Color)
         {
             case GameColor.RED:
@@ -95,10 +93,6 @@ public class PlayerController : MonoBehaviour
 
     public void Move(float direction)
     {
-        if (!_enabled)
-        {
-            direction = 0.0f;
-        }
         // update velocity
         if (_isGrounded || airControl)
         {
@@ -134,7 +128,6 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        if (!_enabled) return;
         if (!_isJumping && _timeSinceLastGrounded < _jumpGracePeriod)
         {
             //Debug.LogWarning("AddForce " + _isGrounded + " " + _isJumping);
@@ -144,9 +137,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnLevelEnd(LevelEndSignal signal)
+    public void Wave()
     {
-        _enabled = false;
+        _animator.SetTrigger("Wave");
+    }
+
+    public void Hooray()
+    {
+        // todo: implement Hooray animation
+        _animator.SetTrigger("Hooray");
     }
 
     private void Flip()

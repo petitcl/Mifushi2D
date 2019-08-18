@@ -12,6 +12,7 @@ public class LevelInstaller : Installer<LevelInstaller>
         Container.BindInterfacesAndSelfTo<LevelManager>().AsSingle();
         Container.BindSignal<PlayerChangedColorSignal>().ToMethod<LevelManager>(l => l.OnPlayerChangeColor).FromResolve();
         Container.BindSignal<PlayerTouchedSignal>().ToMethod<LevelManager>(l => l.OnPlayerTouched).FromResolve();
+        Container.BindInterfacesAndSelfTo<LevelEndAnimationManager>().AsSingle();
 
         Container.BindInterfacesAndSelfTo<ColorsManager>().AsSingle();
     }

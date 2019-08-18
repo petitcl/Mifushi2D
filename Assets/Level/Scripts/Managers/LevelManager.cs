@@ -36,8 +36,9 @@ public class LevelManager : IInitializable
 
     public IEnumerator OnLevelEnd()
     {
-        yield return new WaitForSeconds(2.0f);
         _signalBus.Fire(new LevelEndSignal());
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(7.0f);
+        // quit application, for now
+        Application.Quit();
     }
 }

@@ -147,6 +147,7 @@ public class ColoredGameObject : MonoBehaviour
 
     private bool CanChangeColor(GameColor newColor)
     {
+        if (managed) return true;
         _collider2DsBuffer = _collider2DsBuffer?? new Collider2D[16];
 
         _contactFilter2D.SetLayerMask(_colorsManager.GetLayerMask(newColor));

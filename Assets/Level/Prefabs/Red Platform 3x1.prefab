@@ -10,17 +10,17 @@ PrefabInstance:
     - target: {fileID: 2194499724257624068, guid: db03dead8ac692a42bd2e8395bf7938c,
         type: 3}
       propertyPath: m_Name
-      value: Red Platform 3x1 (1)
+      value: Red Platform 3x1
       objectReference: {fileID: 0}
     - target: {fileID: 2194499724257624067, guid: db03dead8ac692a42bd2e8395bf7938c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.82
+      value: -5.798524
       objectReference: {fileID: 0}
     - target: {fileID: 2194499724257624067, guid: db03dead8ac692a42bd2e8395bf7938c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.56
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 2194499724257624067, guid: db03dead8ac692a42bd2e8395bf7938c,
         type: 3}

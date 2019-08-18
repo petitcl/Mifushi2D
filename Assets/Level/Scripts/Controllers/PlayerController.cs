@@ -31,9 +31,16 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     private ColoredGameObject _coloredGameObject;
 
+    // is the player currently grounded
     private bool _isGrounded = false;
+    // zas the player grounded last frame
     private bool _wasGrounded = false;
+    // time since player left the ground
+    private float _timeSinceLastGrounded = 0.0f;
+    // is the player currently jumping
     private bool _isJumping = false;
+    // time period after leaving the ground, during which the player can still jump
+    private float _jumpGracePeriod = 0.5f;
     private Vector3 _velocity = Vector3.zero;
     private float _movementSmoothing = 0.05f;
     private float _timeSinceLastColorChange = 0.0f;
@@ -117,7 +124,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        if (_isGrounded && !_isJumping)
+        if (!_isJumping && _timeSinceLastGrounded < _jumpGracePeriod)
         {
             //Debug.LogWarning("AddForce " + _isGrounded + " " + _isJumping);
             _rigidbody.AddForce(new Vector2(0f, jumpForce));
@@ -159,6 +166,14 @@ public class PlayerController : MonoBehaviour
         // update ground check
         _wasGrounded = _isGrounded;
         _isGrounded = Physics2D.Linecast(transform.position, groundCheck.transform.position, _coloredGameObject.GameColorLayerMask);
+        if (_isGrounded)
+        {
+            _timeSinceLastGrounded = 0.0f;
+        }
+        if (!_isGrounded && !_wasGrounded)
+        {
+            _timeSinceLastGrounded += Time.fixedDeltaTime;
+        }
         //Debug.Log("After PlayerController.FixedUpdate " + _isGrounded + " " + _isJumping);
     }
 

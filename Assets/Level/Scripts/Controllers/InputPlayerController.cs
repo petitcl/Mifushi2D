@@ -6,10 +6,17 @@ using Zenject;
 [RequireComponent(typeof(PlayerController))]
 public class InputPlayerController : MonoBehaviour
 {
+    [SerializeField]
+    public bool forceDesktopControls = false;
+
     private PlayerController _playerController;
 
     private void Start()
     {
+        if (forceDesktopControls)
+        {
+            CrossPlatformInputManager.SwitchActiveInputMethod(CrossPlatformInputManager.ActiveInputMethod.Hardware);
+        }
         _playerController = GetComponent<PlayerController>();
     }
 

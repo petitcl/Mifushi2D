@@ -101,7 +101,7 @@ public class ColoredGameObject : MonoBehaviour
         // we don't play animations during the first color change
         if (oldWorldColor == GameColor.NONE)
         {
-            DoUpdateColorTransparency(_isOpaque ? 1.0f : 0.5f);
+            DoUpdateColorTransparency(_isOpaque ? _colorsManager.OpaqueAlpha : _colorsManager.TransparentAlpha);
             return;
         }
         // if this colored object has not the same color as the world, make it transparent
@@ -199,8 +199,9 @@ public class ColoredGameObject : MonoBehaviour
         transparencyAnimationManager.Update();
         if (transparencyAnimationManager.IsTransitioning)
         {
-            float previousTransparency = _isOpaque ? 0.5f : 1.0f;
-            float targetTransparency = _isOpaque ? 1.0f : 0.5f;
+            float previousTransparency = _isOpaque ? _colorsManager.TransparentAlpha : _colorsManager.OpaqueAlpha;
+            float targetTransparency = _isOpaque ? _colorsManager.OpaqueAlpha : _colorsManager.TransparentAlpha;
+            
             float newTransparency = Mathf.Lerp(previousTransparency, targetTransparency, transparencyAnimationManager.Value);
             //Debug.Log("Update Transparency" + transparencyAnimationManager.Value);
             DoUpdateColorTransparency(newTransparency);

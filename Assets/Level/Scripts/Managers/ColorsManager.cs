@@ -25,6 +25,8 @@ public class ColorsManager
     /// The current selected color
     /// </summary>
     public GameColor WorldColor { get { return _worldColor;  } }
+    public float OpaqueAlpha { get { return 1.0f; } }
+    public float TransparentAlpha { get { return 0.3f; } }
 
     private GameColor _worldColor = GameColor.NONE;
     private Dictionary<GameColor, GameColorConfiguration> _configurations;

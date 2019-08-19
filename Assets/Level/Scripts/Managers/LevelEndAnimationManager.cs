@@ -38,9 +38,9 @@ public class LevelEndAnimationManager : IInitializable
     public IEnumerator PlayPlayerAnimation()
     {
         yield return new WaitForSeconds(1.0f);
-        _inputPlayerController.CanMove = true;
+        _inputPlayerController.CanMove = false;
         yield return new WaitForSeconds(0.15f);
-        _playerController.Wave();
+        _playerController.Jump();
     }
 
     public IEnumerator PlayUIAnimation()

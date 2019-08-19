@@ -19,15 +19,25 @@ public class LevelUIController : MonoBehaviour
     public void ShowControls()
     {
         joystick.SetActive(true);
-        colorChangeButton.SetActive(true);
+        ShowColorChangeButton();
         //jumpButton.SetActive(true);
     }
 
     public void HideControls()
     {
         joystick.SetActive(false);
-        colorChangeButton.SetActive(false);
+        HideColorChangeButton();
         //jumpButton.SetActive(false);
+    }
+
+    public void ShowColorChangeButton()
+    {
+        colorChangeButton.SetActive(true);
+    }
+
+    public void HideColorChangeButton()
+    {
+        colorChangeButton.SetActive(false);
     }
 
     public void HideOverlay()

@@ -9,11 +9,11 @@ public class LevelEndAnimationManager : IInitializable
     private readonly AsyncProcessor _asyncProcessor;
     private readonly PlayerController _playerController;
     private readonly InputPlayerController _inputPlayerController;
-    private readonly UIController _uiController;
+    private readonly LevelUIController _uiController;
 
     public LevelEndAnimationManager(
         SignalBus signalBus, AsyncProcessor asyncProcessor,
-        UIController uiController,
+        LevelUIController uiController,
         PlayerController playerController, InputPlayerController inputPlayerController
     )
     {
@@ -38,7 +38,7 @@ public class LevelEndAnimationManager : IInitializable
     public IEnumerator PlayPlayerAnimation()
     {
         yield return new WaitForSeconds(1.0f);
-        _inputPlayerController.CanMove = false;
+        _inputPlayerController.CanMove = true;
         yield return new WaitForSeconds(0.15f);
         _playerController.Wave();
     }
@@ -46,6 +46,6 @@ public class LevelEndAnimationManager : IInitializable
     public IEnumerator PlayUIAnimation()
     {
         yield return new WaitForSeconds(2.5f);
-        _uiController.FadeOut();
+        _uiController.OverlayFadeOut();
     }
 }

@@ -21,6 +21,12 @@ public class LevelManager : IInitializable
         _signalBus.Fire(new LevelStartSignal());
     }
 
+    public IEnumerator StartLevel()
+    {
+        yield return new WaitForSeconds(1.0f);
+       
+    }
+
     public void OnPlayerTouched(PlayerTouchedSignal signal)
     {
         if (signal.objectTouchType == ObjectTouchType.LevelEnd)
@@ -37,7 +43,7 @@ public class LevelManager : IInitializable
     public IEnumerator OnLevelEnd()
     {
         _signalBus.Fire(new LevelEndSignal());
-        yield return new WaitForSeconds(7.0f);
+        yield return new WaitForSeconds(6.0f);
         // quit application, for now
         Application.Quit();
     }

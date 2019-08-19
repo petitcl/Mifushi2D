@@ -398,6 +398,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1683862244, guid: 2d6f91e0d26ad8e4ebd9afe7124a4b78, type: 3}
+      propertyPath: configuration.debug
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 105244267, guid: 2d6f91e0d26ad8e4ebd9afe7124a4b78, type: 3}
+      propertyPath: configuration.desktopControls
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 105244267, guid: 2d6f91e0d26ad8e4ebd9afe7124a4b78, type: 3}
+      propertyPath: configuration.startAnimationEnabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d6f91e0d26ad8e4ebd9afe7124a4b78, type: 3}
 --- !u!1001 &1349494789
@@ -479,17 +491,17 @@ PrefabInstance:
     - target: {fileID: 2846211810976372041, guid: e91397714b111e344847563b5b205bc5,
         type: 3}
       propertyPath: m_Name
-      value: White Platform 1x4
+      value: White Platform - Irish Backstop
       objectReference: {fileID: 0}
     - target: {fileID: 2846211810976372043, guid: e91397714b111e344847563b5b205bc5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 2846211810976372043, guid: e91397714b111e344847563b5b205bc5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2846211810976372043, guid: e91397714b111e344847563b5b205bc5,
         type: 3}
@@ -539,6 +551,16 @@ PrefabInstance:
     - target: {fileID: 2846211810976372040, guid: e91397714b111e344847563b5b205bc5,
         type: 3}
       propertyPath: m_Size.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846211810976372040, guid: e91397714b111e344847563b5b205bc5,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846211810976372042, guid: e91397714b111e344847563b5b205bc5,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
       value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -688,7 +710,7 @@ PrefabInstance:
     - target: {fileID: 9132141479371228719, guid: 0da98d8fe7417fa4885bdb29ae60c46d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.655294
+      value: -12.120199
       objectReference: {fileID: 0}
     - target: {fileID: 9132141479371228719, guid: 0da98d8fe7417fa4885bdb29ae60c46d,
         type: 3}
@@ -703,7 +725,7 @@ PrefabInstance:
     - target: {fileID: 9132141480115935931, guid: 0da98d8fe7417fa4885bdb29ae60c46d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.655294
+      value: -12.120199
       objectReference: {fileID: 0}
     - target: {fileID: 9132141480115935931, guid: 0da98d8fe7417fa4885bdb29ae60c46d,
         type: 3}

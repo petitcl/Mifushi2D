@@ -157,15 +157,17 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0, 180, 0);
     }
 
-    private void Start()
+    private void Awake()
     {
-        Debug.Log("PlayerController.Start");
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _coloredGameObject = GetComponent<ColoredGameObject>();
+    }
 
+    private void Start()
+    {
+        Debug.Log("PlayerController.Start");
         _timeSinceLastColorChange = changeColorCooldown;
-
         SetColor(this._coloredGameObject.Color);
     }
 

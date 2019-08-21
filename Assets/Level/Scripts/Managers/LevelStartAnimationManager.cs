@@ -30,14 +30,7 @@ public class LevelStartAnimationManager : IInitializable
 
     public void Initialize()
     {
-        if (!_levelConfig.startAnimationEnabled)
-        {
-            _inputPlayerController.CanMove = true;
-            _uiController.HideOverlay();
-            return;
-        }
-        _inputPlayerController.CanMove = false;
-        _uiController.ShowOverlay();
+
     }
 
     public void OnLevelStart(LevelStartSignal signal)
@@ -53,16 +46,29 @@ public class LevelStartAnimationManager : IInitializable
 
     public IEnumerator PlayPlayerAnimation()
     {
-        // wait for end of frame so all game objects have time to initialize
         yield return new WaitForEndOfFrame();
+
         _playerController.Wave();
+
         yield return new WaitForSeconds(2.0f);
+
         _inputPlayerController.CanMove = true;
     }
 
     public IEnumerator PlayUIAnimation()
     {
+        if (!_levelConfig.startAnimationEnabled)
+        {
+            _inputPlayerController.CanMove = true;
+            _uiController.Overlay.Hide();
+            yield break;
+        }
+
+        _inputPlayerController.CanMove = false;
+        _uiController.Overlay.Show();
+
         yield return new WaitForEndOfFrame();
-        _uiController.OverlayFadeIn();
+
+        _uiController.Overlay.FadeOut();
     }
 }

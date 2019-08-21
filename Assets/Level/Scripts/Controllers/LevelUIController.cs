@@ -1,63 +1,45 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+// todo allow to disable buttons entirely
 public class LevelUIController : MonoBehaviour
 {
-    [SerializeField]
-    public FadingImage overlay;
+    public Fader Overlay { get { return _overlay; } } 
+    public CustomButton ColorChangeButton { get { return _colorChangeButton; } } 
+    public MobilePlayerJoytick Joystick { get { return _joystick; } } 
 
     [SerializeField]
-    public GameObject joystick;
+    private UIFader _overlay;
 
     [SerializeField]
-    public GameObject colorChangeButton;
+    private MobilePlayerJoytick _joystick;
 
-    //[SerializeField]
-    //public GameObject jumpButton;
+    [SerializeField]
+    private CustomButton _colorChangeButton;
 
     public void ShowControls()
     {
-        joystick.SetActive(true);
-        ShowColorChangeButton();
-        //jumpButton.SetActive(true);
+        Joystick.Enable();
+        ColorChangeButton.Enable();
     }
 
     public void HideControls()
     {
-        joystick.SetActive(false);
-        HideColorChangeButton();
-        //jumpButton.SetActive(false);
+       Joystick.Fader.Hide();
+       ColorChangeButton.Fader.Hide();
     }
 
-    public void ShowColorChangeButton()
+    public void FadeOut()
     {
-        colorChangeButton.SetActive(true);
+        Joystick.Fader.FadeOut();
+        ColorChangeButton.Fader.FadeOut();
     }
 
-    public void HideColorChangeButton()
+    public void FadeIn()
     {
-        colorChangeButton.SetActive(false);
+        Joystick.Fader.FadeIn();
+        ColorChangeButton.Fader.FadeIn();
     }
-
-    public void HideOverlay()
-    {
-        overlay.Hide();
-    }
-
-    public void ShowOverlay()
-    {
-        overlay.Show();
-    }
-
-    public void OverlayFadeIn()
-    {
-        overlay.FadeIn();
-    }
-
-    public void OverlayFadeOut()
-    {
-        overlay.FadeOut();
-    }
-
 }

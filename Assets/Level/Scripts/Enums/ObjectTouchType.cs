@@ -5,5 +5,6 @@ using UnityEngine;
 public enum ObjectTouchType
 {
     Monster,
-    LevelEnd
+    LevelEnd,
+    Custom
 }

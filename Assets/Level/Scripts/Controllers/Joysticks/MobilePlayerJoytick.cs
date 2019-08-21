@@ -1,39 +1,29 @@
 ﻿using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
+[RequireComponent(typeof(UIFader))]
 public class MobilePlayerJoytick : MonoBehaviour
 {
-    public enum JumpInput
-    {
-        Joystick,
-        JoystickReset,
-        Button
-    }
+    public Fader Fader { get { return _fader; } }
 
     [SerializeField]
     public Joystick joystick;
 
-    [SerializeField]
-    public PressButton jumpButton;
-
-    [SerializeField]
-    public PressButton colorChangedButton;
-
-    [SerializeField]
-    public JumpInput jumpInput;
-
-    private bool _jumpButtonPressed = false;
+    private UIFader _fader;
     private bool _colorChangeButtonPressed = false;
     private bool _verticalAxisPressed = false;
     private bool _verticalAxisReset = true;
 
-    public void OnJumpButtonPressed()
+    public void Enable()
     {
-        if (jumpInput == JumpInput.Button)
-        {
-            CrossPlatformInputManager.SetButtonDown("Jump");
-            _jumpButtonPressed = true;
-        }
+        Debug.Log("MobilePlayerJoytick.Enable");
+        gameObject.SetActive(true);
+    }
+
+    public void Disable()
+    {
+        Debug.Log("MobilePlayerJoytick.Disable");
+        gameObject.SetActive(false);
     }
 
     public void OnColorChangeButtonPressed()
@@ -42,19 +32,10 @@ public class MobilePlayerJoytick : MonoBehaviour
         _colorChangeButtonPressed = true;
     }
 
-    private void Start()
+    private void Awake()
     {
-        if (jumpInput == JumpInput.Button)
-        {
-            jumpButton.gameObject.SetActive(true);
-            jumpButton.OnPressed.AddListener(this.OnJumpButtonPressed);
-        }
-        else
-        {
-            jumpButton.gameObject.SetActive(false);
-        }
-
-        colorChangedButton.OnPressed.AddListener(this.OnColorChangeButtonPressed);
+        _fader = GetComponent<UIFader>();
+        Debug.Log(string.Format("MobilePlayerJoytick.Awake {0}", _fader != null));
     }
 
     private void Update()
@@ -70,13 +51,6 @@ public class MobilePlayerJoytick : MonoBehaviour
             _verticalAxisReset = false;
             CrossPlatformInputManager.SetButtonDown("Jump");
         }
-        if (jumpInput == JumpInput.Joystick)
-        {
-            if (joystick.Vertical > 0)
-            {
-                CrossPlatformInputManager.SetButtonDown("Jump");
-            }
-        }
         CrossPlatformInputManager.SetAxis("Horizontal", joystick.Horizontal);
     }
 
@@ -86,10 +60,6 @@ public class MobilePlayerJoytick : MonoBehaviour
         if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
             CrossPlatformInputManager.SetButtonUp("Jump");
-        }
-        if (_jumpButtonPressed)
-        {
-            _jumpButtonPressed = false;
         }
         if (_colorChangeButtonPressed)
         {

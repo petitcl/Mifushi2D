@@ -45,7 +45,8 @@ public class LevelEndAnimationManager : IInitializable
 
     public IEnumerator PlayUIAnimation()
     {
+        _uiController.FadeOut();
         yield return new WaitForSeconds(2.5f);
-        _uiController.OverlayFadeOut();
+        _uiController.Overlay.FadeIn();
     }
 }

@@ -53,9 +53,9 @@ public class ColoredGameObject : MonoBehaviour
         _colorsManager = colorsManager;
     }
 
-    /**
-     * Change the color of this game object
-     */
+    /// <summary>
+    /// Change the color of this game object
+    /// </summary>
     public bool SetColor(GameColor newColor, bool animation = true)
     {
         if (!CanChangeColor(newColor)) return false;
@@ -95,7 +95,7 @@ public class ColoredGameObject : MonoBehaviour
 
     public void OnWorldColorChange(GameColor oldWorldColor, GameColor newWorldColor)
     {
-        Debug.Log(String.Format("OnWorldColorChange gameObject={0}, oldWorldColor={1}, newWorldColor={2}, Color={3}", gameObject.name, oldWorldColor, newWorldColor, Color));
+        //Debug.Log(String.Format("OnWorldColorChange gameObject={0}, oldWorldColor={1}, newWorldColor={2}, Color={3}", gameObject.name, oldWorldColor, newWorldColor, Color));
 
         _isOpaque = Color == newWorldColor;
         // we don't play animations during the first color change
@@ -157,7 +157,7 @@ public class ColoredGameObject : MonoBehaviour
             Debug.Log("ColoredGameObject#canChangeColor " + gameObject.name);
         }
         int count = _collider2D.OverlapCollider(_contactFilter2D, _collider2DsBuffer);
-        Debug.Log("ColoredGameObject#canChangeColor " + gameObject.name + " -> Got  " + count + " Collisions");
+        //Debug.Log("ColoredGameObject#canChangeColor " + gameObject.name + " -> Got  " + count + " Collisions");
         for (int i = 0; i < count; ++i)
         {
             Debug.Log("ColoredGameObject#canChangeColor " + gameObject.name + " -> Collision detected with " + _collider2DsBuffer[i].gameObject.name);
@@ -171,7 +171,6 @@ public class ColoredGameObject : MonoBehaviour
         _spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         _spriteMeshInstances = GetComponentsInChildren<SpriteMeshInstance>();
         _collider2D = GetComponent<Collider2D>();
-        Debug.Log("ColoredGameObject.Start._collider2D " + _collider2D);
         _contactFilter2D = new ContactFilter2D();
         _contactFilter2D.useTriggers = false;
         _contactFilter2D.useLayerMask = true;

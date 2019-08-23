@@ -31,11 +31,12 @@ public class OnPlayerTouched : MonoBehaviour
         {
             Debug.Log(String.Format("OnPlayerTouched.OnCollisionEnter2D -> collision between {0} and {1}", gameObject.name, collision.gameObject.name));
             _signalBus.Fire(new PlayerTouchedSignal() { touching = collision.gameObject, objectTouchType = objectTouchType });
-            onTouched?.Invoke();
+
             if (onlyOnce)
             {
                 gameObject.SetActive(false);
             }
+            onTouched?.Invoke();
         }
     }
 
@@ -45,7 +46,7 @@ public class OnPlayerTouched : MonoBehaviour
         {
             Debug.Log(String.Format("OnPlayerTouched.OnTriggerEnter2D -> collision between {0} and {1}", gameObject.name, collider.gameObject.name));
             _signalBus.Fire(new PlayerTouchedSignal() { touching = collider.gameObject, objectTouchType = objectTouchType });
-            onTouched?.Invoke();
+
             if (onlyOnce)
             {
                 gameObject.SetActive(false);

@@ -35,7 +35,6 @@ public class MobilePlayerJoytick : MonoBehaviour
     private void Awake()
     {
         _fader = GetComponent<UIFader>();
-        Debug.Log(string.Format("MobilePlayerJoytick.Awake {0}", _fader != null));
     }
 
     private void Update()

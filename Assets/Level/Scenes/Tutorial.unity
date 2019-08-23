@@ -235,7 +235,7 @@ PrefabInstance:
     - target: {fileID: 2636545971719559116, guid: 3caffa1e39d51ef4d9a94192ca0cc852,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.5
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 2636545971719559116, guid: 3caffa1e39d51ef4d9a94192ca0cc852,
         type: 3}
@@ -613,69 +613,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1 &976062791
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 976062792}
-  - component: {fileID: 976062793}
-  - component: {fileID: 976062794}
-  m_Layer: 5
-  m_Name: Joystick
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &976062792
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976062791}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 5927337744524334248}
-  m_Father: {fileID: 5952842118721840568}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -1232, y: -568}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &976062793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976062791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adbb15b8005d3974cadedb1ae5449a14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  joystick: {fileID: 7013472469867147617}
---- !u!114 &976062794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976062791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95f05baffcd5b0b4593fcf3901f5549e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1137185987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,7 +983,7 @@ PrefabInstance:
     - target: {fileID: 9132141479371228719, guid: 0da98d8fe7417fa4885bdb29ae60c46d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.781103
+      value: -13.873106
       objectReference: {fileID: 0}
     - target: {fileID: 9132141479371228719, guid: 0da98d8fe7417fa4885bdb29ae60c46d,
         type: 3}
@@ -1071,7 +1008,7 @@ PrefabInstance:
     - target: {fileID: 9132141480115935931, guid: 0da98d8fe7417fa4885bdb29ae60c46d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.781103
+      value: -13.873106
       objectReference: {fileID: 0}
     - target: {fileID: 9132141480115935931, guid: 0da98d8fe7417fa4885bdb29ae60c46d,
         type: 3}
@@ -1282,7 +1219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _overlay: {fileID: 462241468}
-  _joystick: {fileID: 976062793}
+  _joystick: {fileID: 5386098076632055125}
   _colorChangeButton: {fileID: 2590917182060630404}
 --- !u!114 &1871529025
 MonoBehaviour:
@@ -1721,7 +1658,7 @@ MonoBehaviour:
   OnPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 976062793}
+      - m_Target: {fileID: 5386098076632055125}
         m_MethodName: OnColorChangeButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -1903,6 +1840,8 @@ GameObject:
   - component: {fileID: 6259539240493019668}
   - component: {fileID: 4920350466355692827}
   - component: {fileID: 7013472469867147617}
+  - component: {fileID: 5386098076632055126}
+  - component: {fileID: 5386098076632055125}
   m_Layer: 5
   m_Name: Fixed Joystick
   m_TagString: Untagged
@@ -1910,6 +1849,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5386098076632055125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5386098076632055124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adbb15b8005d3974cadedb1ae5449a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joystick: {fileID: 7013472469867147617}
+--- !u!114 &5386098076632055126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5386098076632055124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95f05baffcd5b0b4593fcf3901f5549e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5428046428645312681
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1923,7 +1887,7 @@ RectTransform:
   m_Children:
   - {fileID: 7844905338104326777}
   m_Father: {fileID: 5952842118721840568}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -1974,12 +1938,12 @@ RectTransform:
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 4589351369879256431}
-  m_Father: {fileID: 976062792}
-  m_RootOrder: 0
+  m_Father: {fileID: 5952842118721840568}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -495, y: -173}
+  m_AnchoredPosition: {x: 121, y: 111}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &5952842118721840568
@@ -1994,8 +1958,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 462241479}
-  - {fileID: 976062792}
   - {fileID: 5428046428645312681}
+  - {fileID: 5927337744524334248}
   m_Father: {fileID: 5952842119781899301}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2121,10 +2085,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handleRange: 1
-  deadZone: 0.4
+  horizontalDeadZone: 0
+  verticalDeadZone: 0
   axisOptions: 0
   snapX: 1
-  snapY: 0
+  snapY: 1
   background: {fileID: 5927337744524334248}
   handle: {fileID: 4589351369879256431}
 --- !u!224 &7844905338104326777

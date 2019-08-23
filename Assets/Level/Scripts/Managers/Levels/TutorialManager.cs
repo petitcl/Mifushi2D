@@ -47,6 +47,11 @@ public class TutorialManager : MonoBehaviour
     {
         Debug.Log("Level0AnimationsManager.OnPlayerChangedColor");
         _colorChangeCount++;
+        if (_colorChangeCount == 1)
+        {
+            // skip the first color change as it is the initial one
+            return;
+        }
         _uiController.ColorChangeButton.Disable();
         _uiController.ColorChangeButton.Fader.FadeOut();
     }

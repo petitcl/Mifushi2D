@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerChangedColorSignal
 {
-    /// <summary>
-    /// The new color of the player
-    /// </summary>
+
+    // The previous color of the player
+    public GameColor oldColor;
+    // The new color of the player
     public GameColor newColor;
 }

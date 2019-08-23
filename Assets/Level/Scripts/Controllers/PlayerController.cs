@@ -66,13 +66,14 @@ public class PlayerController : MonoBehaviour
             return false;
         }
 
+        GameColor oldColor = newColor == _coloredGameObject.Color ? GameColor.NONE : _coloredGameObject.Color;
         bool changedColor = _coloredGameObject.SetColor(newColor);
         if (!changedColor)
         {
             return false;
         }
         _timeSinceLastColorChange = 0.0f;
-        _signalBus.Fire(new PlayerChangedColorSignal() { newColor = newColor });
+        _signalBus.Fire(new PlayerChangedColorSignal() { oldColor = oldColor, newColor = newColor });
         return true;
     }
 
@@ -130,10 +131,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!_isJumping && _timeSinceLastGrounded < _jumpGracePeriod)
         {
-            //Debug.LogWarning("AddForce " + _isGrounded + " " + _isJumping);
             _rigidbody.AddForce(new Vector2(0f, jumpForce));
             _isJumping = true;
-            //Debug.LogWarning("After AddForce " + _isGrounded + " " + _isJumping);
         }
     }
 
@@ -153,7 +152,7 @@ public class PlayerController : MonoBehaviour
         // Switch the way the player is labelled as facing.
         _facingRight = !_facingRight;
 
-        // Multiply the player's x local scale by -1.
+        // Rotate the player in the other direction
         transform.Rotate(0, 180, 0);
     }
 

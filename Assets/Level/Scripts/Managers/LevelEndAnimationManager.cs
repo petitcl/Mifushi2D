@@ -40,7 +40,7 @@ public class LevelEndAnimationManager : IInitializable
         yield return new WaitForSeconds(1.0f);
         _inputPlayerController.CanMove = false;
         yield return new WaitForSeconds(0.15f);
-        _playerController.Jump();
+        _playerController.Hooray();
     }
 
     public IEnumerator PlayUIAnimation()

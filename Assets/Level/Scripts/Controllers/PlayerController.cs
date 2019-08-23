@@ -143,7 +143,6 @@ public class PlayerController : MonoBehaviour
 
     public void Hooray()
     {
-        // todo: implement Hooray animation
         _animator.SetTrigger("Hooray");
     }
 

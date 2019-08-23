@@ -39,7 +39,6 @@ public class LevelStartAnimationManager : IInitializable
         {
             return;
         }
-        Debug.Log("OnLevelStart");
         _asyncProcessor.StartCoroutine(PlayPlayerAnimation());
         _asyncProcessor.StartCoroutine(PlayUIAnimation());
     }

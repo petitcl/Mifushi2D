@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// todo handle colors.isStatic
 public class ColorsManager
 {
     /// <summary>
     /// Configuration of a game color
     /// </summary>
-    public class GameColorConfiguration
+
+
+    public static Color hexToColor(string hex)
     {
-        // name of the corresponding physic layer
-        public string layerName;
-        // name of the game color
-        public string colorName;
-        // actual render color of the game color
-        public Color color;
+        Color color = new Color(1, 1, 1);
+        ColorUtility.TryParseHtmlString(hex, out color);
+        return color;
     }
 
     // events
@@ -28,18 +28,18 @@ public class ColorsManager
     public float OpaqueAlpha { get { return 1.0f; } }
     public float TransparentAlpha { get { return 0.3f; } }
 
+    private LevelConfig _levelConfig;
     private GameColor _worldColor = GameColor.NONE;
-    private Dictionary<GameColor, GameColorConfiguration> _configurations;
+    private Dictionary<GameColor, GameColorConfig> _configurations;
 
-    public ColorsManager()
+    public ColorsManager(LevelConfig levelConfig)
     {
-        _configurations = new Dictionary<GameColor, GameColorConfiguration>()
+        _levelConfig = levelConfig;
+        _configurations = new Dictionary<GameColor, GameColorConfig>();
+        foreach (GameColorConfig config in _levelConfig.colors.colors)
         {
-            [GameColor.WHITE] = new GameColorConfiguration { color = Color.white,   colorName = "White",    layerName = "White" },
-            [GameColor.RED] =   new GameColorConfiguration { color = Color.red,     colorName = "Red",      layerName = "Red"   },
-            [GameColor.GREEN] = new GameColorConfiguration { color = Color.green,   colorName = "Green",    layerName = "Green" },
-            [GameColor.BLUE] =  new GameColorConfiguration { color = Color.blue,    colorName = "Blue",     layerName = "Blue"  },
-        };
+            _configurations.Add(config.gameColor, config);
+        }
     }
 
     public void OnPlayerChangeColor(PlayerChangedColorSignal signal)

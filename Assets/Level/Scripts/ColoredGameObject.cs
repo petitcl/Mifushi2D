@@ -8,7 +8,6 @@ using Zenject;
 // todo: handle effector
 // todo: handle multiple colliders
 [AddComponentMenu("Scripts/Mifushi 2D/ColoredGameObject")]
-[RequireComponent(typeof(Collider2D))]
 public class ColoredGameObject : MonoBehaviour
 {
     // Initial color of the game object

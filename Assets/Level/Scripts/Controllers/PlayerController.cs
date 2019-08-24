@@ -79,17 +79,8 @@ public class PlayerController : MonoBehaviour
 
     public bool CycleColor()
     {
-        switch (_coloredGameObject.Color)
-        {
-            case GameColor.RED:
-                return SetColor(GameColor.GREEN);
-            case GameColor.GREEN:
-                return SetColor(GameColor.BLUE);
-            case GameColor.BLUE:
-                return SetColor(GameColor.RED);
-            default:
-                return false;
-        }
+        GameColor nextColor = _colorsManager.GetNextColor(_coloredGameObject.Color);
+        return SetColor(nextColor);
     }
 
     public void Move(float direction)

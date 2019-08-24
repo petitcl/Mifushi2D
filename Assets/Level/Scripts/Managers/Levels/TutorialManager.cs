@@ -12,6 +12,7 @@ public class TutorialManager : MonoBehaviour
     private LevelUIController _uiController;
 
     private int _colorChangeCount = 0;
+    private GameColor _currentColor;
 
     [Inject]
     public void Init(
@@ -35,6 +36,7 @@ public class TutorialManager : MonoBehaviour
     public IEnumerator PlayUIAnimation()
     {
          _uiController.HideControls();
+         _uiController.ColorChangeButton.Animate = false;
 
         yield return new WaitForSeconds(3.0f);
         _uiController.Joystick.Fader.FadeIn();
@@ -42,19 +44,21 @@ public class TutorialManager : MonoBehaviour
 
     public void OnPlayerChangedColor(PlayerChangedColorSignal signal)
     {
+        _currentColor = signal.newColor;
         //Debug.Log(String.Format("TutorialManager.OnPlayerChangedColor oldColor -> {0}, newColor -> {1}", signal.oldColor, signal.newColor));
         if (signal.oldColor == GameColor.NONE)
         {
             return;
         }
         _colorChangeCount++;
-        _uiController.ColorChangeButton.Disable();
+        _uiController.ColorChangeButton.Button.Disable();
         _uiController.ColorChangeButton.Fader.FadeOut();
     }
 
     public void OnPlayerInFrontOfWall()
     {
-        _uiController.ColorChangeButton.Enable();
+        _uiController.ColorChangeButton.Refresh(_currentColor, false);
+        _uiController.ColorChangeButton.Button.Enable();
         _uiController.ColorChangeButton.Fader.FadeIn();
     }
 

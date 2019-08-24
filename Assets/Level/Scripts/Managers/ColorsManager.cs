@@ -5,11 +5,6 @@ using UnityEngine;
 // todo handle colors.isStatic
 public class ColorsManager
 {
-    /// <summary>
-    /// Configuration of a game color
-    /// </summary>
-
-
     public static Color hexToColor(string hex)
     {
         Color color = new Color(1, 1, 1);
@@ -40,6 +35,11 @@ public class ColorsManager
         {
             _configurations.Add(config.gameColor, config);
         }
+    }
+
+    public GameColor GetNextColor(GameColor currentColor)
+    {
+        return _configurations[currentColor].nextGameColor;
     }
 
     public void OnPlayerChangeColor(PlayerChangedColorSignal signal)
@@ -76,6 +76,7 @@ public class ColorsManager
     /// </summary>
     public Color GetColor(GameColor color)
     {
+        if (!_configurations.ContainsKey(color)) Debug.Log("No tengo " + color);
         return _configurations[color].color;
     }
 

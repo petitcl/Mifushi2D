@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
+//todo: handle time
 public class UIFader : MonoBehaviour, Fader
 {
     public bool IsFadedOut { get { return _fadedOut; } }
@@ -61,7 +62,7 @@ public class UIFader : MonoBehaviour, Fader
             "from", 0.0f,
             "to", 1.0f,
             "onupdate", "SetAlpha",
-            "time", 2.0f,
+            "time", 1.0f,
             "easetype", iTween.EaseType.easeOutCubic
         ));
         _fadedOut = false;

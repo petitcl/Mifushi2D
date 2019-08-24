@@ -30,11 +30,11 @@ public class TilingBackground : MonoBehaviour
         {
             if (_camera.transform.position.x >= (rightVisibleEdge - offsetX) && !rightInstance)
             {
-                MakeNewBuddy(1);
+                MakeNewInstance(1);
             }
             else if (_camera.transform.position.x <= (leftVisibleEdge + offsetX) && !leftInstance)
             {
-                MakeNewBuddy(-1);
+                MakeNewInstance(-1);
             }
         }
 
@@ -56,7 +56,7 @@ public class TilingBackground : MonoBehaviour
         }
     }
 
-    private void MakeNewBuddy(int direction)
+    private void MakeNewInstance(int direction)
     {
         
         Vector3 newPosition = new Vector3(

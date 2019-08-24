@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 // todo allow to disable buttons entirely
 public class LevelUIController : MonoBehaviour
 {
     public Fader Overlay { get { return _overlay; } } 
-    public CustomButton ColorChangeButton { get { return _colorChangeButton; } } 
+    public ColorChangeButton ColorChangeButton { get { return _colorChangeButton; } } 
     public MobilePlayerJoytick Joystick { get { return _joystick; } } 
 
     [SerializeField]
@@ -17,17 +18,18 @@ public class LevelUIController : MonoBehaviour
     private MobilePlayerJoytick _joystick;
 
     [SerializeField]
-    private CustomButton _colorChangeButton;
+    private ColorChangeButton _colorChangeButton;
 
     public void ShowControls()
     {
         Joystick.Enable();
-        ColorChangeButton.Enable();
+        ColorChangeButton.Button.Enable();
     }
 
     public void HideControls()
     {
        Joystick.Fader.Hide();
+       Debug.Log(String.Format("{0}, {1}", ColorChangeButton != null, ColorChangeButton?.Fader != null));
        ColorChangeButton.Fader.Hide();
     }
 

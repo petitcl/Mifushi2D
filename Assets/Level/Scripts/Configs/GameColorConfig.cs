@@ -6,6 +6,9 @@ public class GameColorConfig
 {
     public GameColor gameColor;
 
+    // the next game color to use when cycling
+    public GameColor nextGameColor;
+
     // name of the corresponding physic layer
     public string layerName;
 

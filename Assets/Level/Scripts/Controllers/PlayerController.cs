@@ -164,7 +164,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("PlayerController.Start");
+        //Debug.Log("PlayerController.Start");
         _timeSinceLastColorChange = changeColorCooldown;
         SetColor(this._coloredGameObject.Color);
     }

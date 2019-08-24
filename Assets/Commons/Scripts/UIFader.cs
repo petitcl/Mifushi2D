@@ -31,7 +31,7 @@ public class UIFader : MonoBehaviour, Fader
 
     public void Show()
     {
-        Debug.Log(String.Format("{0} Show", gameObject.name));
+        //Debug.Log(String.Format("{0} Show", gameObject.name));
         iTween.Stop(gameObject, true);
         gameObject.SetActive(true);
         SetAlpha(1.0f);
@@ -40,7 +40,7 @@ public class UIFader : MonoBehaviour, Fader
 
     public void Hide()
     {
-        Debug.Log(String.Format("{0} Hide", gameObject.name));
+        //Debug.Log(String.Format("{0} Hide", gameObject.name));
         iTween.Stop(gameObject, true);
         SetAlpha(0.0f);
         gameObject.SetActive(false);
@@ -49,7 +49,7 @@ public class UIFader : MonoBehaviour, Fader
 
     public void FadeIn()
     {
-        Debug.Log(String.Format("{0} FadeIn", gameObject.name));
+        //Debug.Log(String.Format("{0} FadeIn", gameObject.name));
         if (!_fadedOut)
         {
             return;
@@ -69,7 +69,7 @@ public class UIFader : MonoBehaviour, Fader
 
     public void FadeOut()
     {
-        Debug.Log(String.Format("{0} FadeOut", gameObject.name));
+        //Debug.Log(String.Format("{0} FadeOut", gameObject.name));
         if (_fadedOut)
         {
             return;

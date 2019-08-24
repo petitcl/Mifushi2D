@@ -28,7 +28,7 @@ public class TutorialManager : MonoBehaviour
 
     public void OnLevelStart(LevelStartSignal signal)
     {
-        Debug.Log("Level0AnimationsManager.OnLevelStart");
+        //Debug.Log("Level0AnimationsManager.OnLevelStart");
         StartCoroutine(PlayUIAnimation());
     }
 
@@ -42,13 +42,12 @@ public class TutorialManager : MonoBehaviour
 
     public void OnPlayerChangedColor(PlayerChangedColorSignal signal)
     {
-        Debug.Log("Level0AnimationsManager.OnPlayerChangedColor");
-        _colorChangeCount++;
-        if (_colorChangeCount == 1)
+        //Debug.Log(String.Format("TutorialManager.OnPlayerChangedColor oldColor -> {0}, newColor -> {1}", signal.oldColor, signal.newColor));
+        if (signal.oldColor == GameColor.NONE)
         {
-            // skip the first color change as it is the initial one
             return;
         }
+        _colorChangeCount++;
         _uiController.ColorChangeButton.Disable();
         _uiController.ColorChangeButton.Fader.FadeOut();
     }

@@ -166,7 +166,7 @@ public class ColoredGameObject : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("ColoredGameObject.Start " + gameObject.name);
+        //Debug.Log("ColoredGameObject.Start " + gameObject.name);
         _spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         _spriteMeshInstances = GetComponentsInChildren<SpriteMeshInstance>();
         _collider2D = GetComponent<Collider2D>();

@@ -37,7 +37,7 @@ public class LevelManager : IInitializable
 
     public void OnPlayerChangeColor(PlayerChangedColorSignal signal)
     {
-        Debug.Log(string.Format("OnPlayerTouched oldColor -> {0} newColor -> {1}", signal.oldColor, signal.newColor));
+        Debug.Log(string.Format("OnPlayerChangeColor oldColor -> {0} newColor -> {1}", signal.oldColor, signal.newColor));
         _colorsManager.SetWorldColor(signal.newColor);
     }
 

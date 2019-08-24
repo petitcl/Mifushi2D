@@ -24,9 +24,6 @@ public class TutorialManager : MonoBehaviour
         _playerController = playerController;
         _inputPlayerController = inputPlayerController;
         _uiController = uiController;
-
-        _signalBus.Subscribe<LevelStartSignal>(s => this.OnLevelStart(s));
-        _signalBus.Subscribe<PlayerChangedColorSignal>(s => this.OnPlayerChangedColor(s));
     }
 
     public void OnLevelStart(LevelStartSignal signal)
@@ -60,5 +57,11 @@ public class TutorialManager : MonoBehaviour
     {
         _uiController.ColorChangeButton.Enable();
         _uiController.ColorChangeButton.Fader.FadeIn();
+    }
+
+    private void Awake()
+    {
+        _signalBus.Subscribe<LevelStartSignal>(s => this.OnLevelStart(s));
+        _signalBus.Subscribe<PlayerChangedColorSignal>(s => this.OnPlayerChangedColor(s));
     }
 }

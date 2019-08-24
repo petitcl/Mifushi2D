@@ -26,6 +26,7 @@ public class ColorsManager
     private LevelConfig _levelConfig;
     private GameColor _worldColor = GameColor.NONE;
     private Dictionary<GameColor, GameColorConfig> _configurations;
+    private int _staticLayerMask = 0;
 
     public ColorsManager(LevelConfig levelConfig)
     {
@@ -88,23 +89,40 @@ public class ColorsManager
         return _configurations[color].layerName;
     }
 
-    public int GetLayer(GameColor color = GameColor.WHITE)
+    public int GetLayer(GameColor color)
     {
         return LayerMask.NameToLayer(GetLayerName(color));
     }
 
-    public int GetLayerMask(GameColor color = GameColor.WHITE)
+    public int GetLayerMask(GameColor color)
     {
         return 1 << GetLayer(color);
     }
 
-    public int GetCombinedLayerMask(GameColor color = GameColor.WHITE)
+    public int GetCombinedLayerMask(GameColor color)
     {
-        if (color == GameColor.WHITE)
+        if (_staticLayerMask == 0)
+        {
+            foreach (KeyValuePair<GameColor, GameColorConfig> pair in _configurations)
+            {
+                if (pair.Value.isStatic)
+                {
+                    if (_staticLayerMask == 0)
+                    {
+                        _staticLayerMask = GetLayerMask(pair.Key);
+                    }
+                    else
+                    {
+                        _staticLayerMask = _staticLayerMask | GetLayerMask(pair.Key);
+                    }
+                }
+            }
+        }
+        /*if (color == GameColor.WHITE)
         {
             return GetLayerMask(GameColor.WHITE);
-        }
-        return GetLayerMask(GameColor.WHITE) | GetLayerMask(color);
+        }*/
+        return _staticLayerMask | GetLayerMask(color);
     }
 
     /// <summary>

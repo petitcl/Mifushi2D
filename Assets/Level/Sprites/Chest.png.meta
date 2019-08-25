@@ -1,43 +1,25 @@
 fileFormatVersion: 2
-guid: e8757801d16209944a0503d6dc34e8d5
+guid: 2dca4c6c09fbb1f45928ea4046a483df
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8916319203913080252
+      213: 21300000
     second: 2048x512_0
   - first:
-      213: 2255723227315765333
+      213: 21300002
     second: 2048x512_1
   - first:
-      213: 9047192366704079938
+      213: 21300004
     second: 2048x512_2
   - first:
-      213: -9001569369093646257
+      213: 21300006
     second: 2048x512_3
   - first:
-      213: -5354102714394893757
+      213: 21300008
     second: 2048x512_4
   - first:
-      213: 8924579949120471096
+      213: 21300010
     second: 2048x512_5
-  - first:
-      213: -5281422124547630143
-    second: Chest_0
-  - first:
-      213: 4714410783012859700
-    second: Chest_1
-  - first:
-      213: -4685547431992939551
-    second: Chest_2
-  - first:
-      213: 8985439187258846068
-    second: Chest_3
-  - first:
-      213: -5279824056886119778
-    second: Chest_4
-  - first:
-      213: 826535257128478662
-    second: Chest_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -119,6 +101,30 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -130,17 +136,65 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Tizen
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Samsung TV
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chest_0
+      name: 2048x512_0
       rect:
         serializedVersion: 2
         x: 126
-        y: 132
+        y: 128
         width: 256
-        height: 256
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,20 +202,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3de919693166cc84cb71fc20ee4fdbf5
-      internalID: -5281422124547630143
+      spriteID: 4b4b345b1ac3fa94eb516de676ac439b
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest_1
+      name: 2048x512_1
       rect:
         serializedVersion: 2
         x: 434
         y: 128
         width: 256
-        height: 266
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +223,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24e06cdd27f31014da5b8dce1dea910f
-      internalID: 4714410783012859700
+      spriteID: 75c2bd3fba521574c8149b2210ffe9c3
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest_2
+      name: 2048x512_2
       rect:
         serializedVersion: 2
         x: 742
         y: 128
         width: 256
-        height: 276
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,20 +244,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31ae29d423922df4d983d3f4b8acf807
-      internalID: -4685547431992939551
+      spriteID: a46e3e29fbdf4a6459e9177f9eac5459
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest_3
+      name: 2048x512_3
       rect:
         serializedVersion: 2
         x: 1050
         y: 128
         width: 256
-        height: 292
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,20 +265,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee83527df66f8ac4cb9bbed529c8c05f
-      internalID: 8985439187258846068
+      spriteID: cec10c2b59b2e74499f05402cdd36a9b
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest_4
+      name: 2048x512_4
       rect:
         serializedVersion: 2
         x: 1358
         y: 128
         width: 256
-        height: 300
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,29 +286,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b8716d3f69e93444aa28535bf75133c
-      internalID: -5279824056886119778
+      spriteID: fe641b9d14270b344aa1a7ec26d0f6b2
+      internalID: 21300008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest_5
+      name: 2048x512_5
       rect:
         serializedVersion: 2
         x: 1666
         y: 128
         width: 256
-        height: 304
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 9, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3971988bc356f2438b2892d058653b9
-      internalID: 826535257128478662
+      spriteID: d8650d6035a989944830f9970cf4a52e
+      internalID: 21300010
       vertices: []
       indices: 
       edges: []
@@ -262,7 +316,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 6fad7b423b2b642448dfeccbc8c32a6c
     internalID: 0
     vertices: []
     indices: 

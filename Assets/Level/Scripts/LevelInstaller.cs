@@ -12,12 +12,13 @@ public class LevelInstaller : MonoInstaller<LevelInstaller>
         InstallSignals();
 
         Container.BindInstance(configuration);
-        Container.BindInterfacesAndSelfTo<LevelManager>().AsSingle();
-        Container.BindInterfacesAndSelfTo<ColorsManager>().AsSingle();
-        Container.BindInterfacesAndSelfTo<LevelInputManager>().AsSingle();
+        Container.BindInterfacesAndSelfTo<LevelManager>().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<ColorsManager>().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<LevelInputManager>().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<LevelVibrationManager>().AsSingle().NonLazy();
 
-        Container.BindInterfacesAndSelfTo<LevelStartAnimationManager>().AsSingle();
-        Container.BindInterfacesAndSelfTo<LevelEndAnimationManager>().AsSingle();
+        Container.BindInterfacesAndSelfTo<LevelStartAnimationManager>().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<LevelEndAnimationManager>().AsSingle().NonLazy();
 
         //todo: change to subscribe in target services
         Container.BindSignal<PlayerChangedColorSignal>().ToMethod<LevelManager>(l => l.OnPlayerChangeColor).FromResolve();

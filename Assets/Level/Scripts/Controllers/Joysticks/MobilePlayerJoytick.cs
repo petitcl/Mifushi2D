@@ -9,6 +9,9 @@ public class MobilePlayerJoytick : MonoBehaviour
     [SerializeField]
     public Joystick joystick;
 
+   [SerializeField]
+    public float verticalThreshold = 0.0f;
+
     private UIFader _fader;
     private bool _colorChangeButtonPressed = false;
     private bool _verticalAxisPressed = false;
@@ -40,11 +43,11 @@ public class MobilePlayerJoytick : MonoBehaviour
     private void Update()
     {
         //Debug.Log("Update " + joystick.Vertical + " " + _verticalAxisPressed + " " + _verticalAxisReset);
-        if (joystick.Vertical <= 0)
+        if (joystick.Vertical <= verticalThreshold)
         {
             _verticalAxisReset = true;
         }
-        if (joystick.Vertical > 0 && !_verticalAxisPressed && _verticalAxisReset)
+        if (joystick.Vertical > verticalThreshold && !_verticalAxisPressed && _verticalAxisReset)
         {
             _verticalAxisPressed = true;
             _verticalAxisReset = false;

@@ -791,10 +791,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handleRange: 1
-  deadZone: 0
+  deadZone: 0.4
   axisOptions: 0
   snapX: 1
-  snapY: 1
+  snapY: 0
   background: {fileID: 5620746247298169257}
   handle: {fileID: 2590240942089343086}
 --- !u!114 &6268314696141705303
@@ -822,6 +822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 9013418804610063456}
+  verticalThreshold: 0.8
 --- !u!1 &7131774238153393013
 GameObject:
   m_ObjectHideFlags: 0
